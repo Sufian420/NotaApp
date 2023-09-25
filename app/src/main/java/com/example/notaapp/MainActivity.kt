@@ -34,6 +34,14 @@ class MainActivity : AppCompatActivity() {
             db.getContactDao().createContact(contact)
         }
 
+        binding.getBtn.setOnClickListener{
+
+            val contactList:List<Contact> = db.getContactDao().getAllContact()
+            contactList.forEach{
+                binding.showText.text="${binding.showText.text}\n\n ${it.toString()}"
+            }
+
+        }
 
 
     }
